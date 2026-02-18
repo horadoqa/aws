@@ -1,46 +1,83 @@
-# SSM (Secure Session Manager)
+# 🔐 O que é o AWS SSM (Systems Manager) – Session Manager?
 
-Conectando a uma EC2 na AWS com SSM
+O **SSM (Systems Manager) – Session Manager** é um serviço da Amazon Web Services que permite **acessar e gerenciar instâncias EC2 de forma segura sem precisar de SSH ou RDP**.
 
-1. Criar a instância, já estão com SSM habilitados
+Em termos simples:
 
-2. Criar a role com as permissões
+> 🖥️💻 Session Manager = terminal seguro para gerenciar servidores na nuvem, direto do navegador ou CLI, sem abrir portas na internet.
 
-IAM/Roles
+---
 
-Criar
+## 🎯 Para que serve?
 
+Você usa o Session Manager para:
 
-AWS SErvice
+* Acessar instâncias EC2 de forma segura
+* Evitar abrir portas SSH/RDP (melhora a segurança)
+* Auditar quem acessou o servidor e o que foi feito
+* Automatizar tarefas administrativas sem chave privada
 
-EC2
+---
 
-amazonSSMManagerInstanceCore
+## 🏗️ Como funciona?
 
-role-acesso-ssm
+1. Você habilita **SSM Agent** na sua instância EC2
+2. Concede permissões via **IAM Role** para a instância
+3. Você abre uma sessão no console AWS ou via CLI:
 
+```bash
+aws ssm start-session --target i-0123456789abcdef0
+```
 
-Adicionar role no terraform
+4. A AWS cria um **canal seguro criptografado** para você acessar o terminal
 
+---
 
-Polices
+## 🔹 Principais benefícios
 
-Adicionar permissão
+* 🔒 **Segurança:** Sem abrir portas SSH/RDP
+* 📜 **Auditoria:** Logs de todas as ações no CloudTrail
+* ⚡ **Automação:** Scripts podem ser executados remotamente
+* 🌐 **Acesso centralizado:** Multiplas instâncias de diferentes regiões
 
-Create police
+---
 
-{
-    "Version": "2025-02-25",
-    "Statement": [
-        {
-            "Effect": "Alow",
-            "Action": "ssm:StartSession",
-            "Resource": ["*"]
-        }
-    ]
-}
+## 🆚 SSM vs SSH/RDP
 
-Name: police-acesso-ssm
+| Característica            | SSH/RDP                  | Session Manager (SSM)             |
+| ------------------------- | ------------------------ | --------------------------------- |
+| Porta aberta na internet  | Sim                      | Não                               |
+| Gerenciamento de chave    | Sim, precisa de key pair | Não, IAM controla                 |
+| Auditoria                 | Limitada                 | CloudTrail registra todas sessões |
+| Acesso via CLI ou console | SSH/RDP client           | AWS CLI ou Console                |
 
-aws ssm start-session --target <id da instância>
+---
+
+## 📦 Exemplo prático
+
+Você tem uma EC2 Linux:
+
+1. Instala o **SSM Agent** (já vem em AMIs recentes)
+2. Cria IAM Role com permissão `AmazonSSMManagedInstanceCore`
+3. Abre console AWS → Session Manager → Start Session
+4. Terminal pronto para executar comandos, sem precisar de chave SSH
+
+---
+
+## 🔎 Resumo rápido
+
+SSM Session Manager é:
+
+✔️ Acesso seguro a instâncias EC2
+✔️ Sem SSH/RDP e sem abrir portas
+✔️ Logs e auditoria integrados
+✔️ Pode executar scripts e comandos remotamente
+
+---
+
+Próximos passos:
+
+* Como configurar SSM passo a passo
+* Como acessar EC2 via Session Manager pelo CLI
+* Diferença entre Session Manager e Systems Manager Run Command
 
