@@ -4,5 +4,6 @@ def lambda_handler(event, context):
         'body': 'Olá, mundo!'
     }
 
-lambda_handler()
-
+# if __name__ == "__main__":
+#     a = lambda_handler(None, None)
+#     print(a)
