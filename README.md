@@ -1,7 +1,5 @@
 # AWS (Amazon Web Services)
 
-# AWS
-
 A AWS oferece uma vasta gama de ferramentas para computação, armazenamento, rede, análise de dados, inteligência artificial, entre outros, que ajudam a criar e gerenciar infraestrutura na nuvem com alta escalabilidade e flexibilidade.
 
 ## Tecnologias e Serviços da AWS
@@ -99,5 +97,3 @@ Esta série de vídeos tem como objetivo fornecer um aprendizado prático sobre 
 1. Acesse a **playlist** no seu serviço de vídeo preferido (YouTube, Vimeo, etc.).
 2. Assista aos vídeos na ordem recomendada para obter uma compreensão mais profunda dos serviços.
 3. Coloque em prática o que aprendeu criando recursos na AWS (lembre-se de seguir as boas práticas de segurança e controle de custos).
-
-
