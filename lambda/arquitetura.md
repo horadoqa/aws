@@ -1,3 +1,5 @@
+# Arquitetura
+
 Para criar uma arquitetura com o **AWS Lambda** em um projeto de página web, você pode adotar uma abordagem **serverless** onde o backend é completamente gerido pela AWS, sem a necessidade de manter servidores. Aqui está uma descrição detalhada de como seria essa arquitetura:
 
 ### Arquitetura Serverless para uma Página Web com AWS Lambda:
